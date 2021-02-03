@@ -8,7 +8,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: url('../img/background-login.jpg');
+  background: linear-gradient(to bottom, transparent 40%, white 80%), url('../img/background-login-oxiteno.jpg');
   background-size: 100% 100%;
 }
 
@@ -17,8 +17,8 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: auto;
-  background: rgba(153,202,59, 0.6);
-  border: 3px solid #131313;
+  background: rgba(255, 255, 255, 0.8);
+  border: 4px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 .form-signin .checkbox {
@@ -34,7 +34,13 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
+.form-signin input[type="name"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .form-signin input[type="email"] {
+  margin-top: -1px;
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -43,4 +49,8 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.form-signin button[type="submit"] {
+  background: #99CA3B;
+  border-color: #99CA3B;
 }

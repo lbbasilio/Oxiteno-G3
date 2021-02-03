@@ -55,7 +55,7 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit" id="send">Entrar</button>
-            <p class="mt-5 mb-3">© 1970  -   2021</p>
+            <p class="mt-3 mb-3">© 1970  -   2021</p>
         </form>
     </main>
 </body>
@@ -63,7 +63,6 @@
 </html>
 
 <script>
-    
     // User Login
     localStorage.setItem('emailUser', 'steniodr@hotmail.com');
     localStorage.setItem('passwordUser', 'oxitenoChamaEu');
@@ -72,10 +71,7 @@
     localStorage.setItem('emailColl', 'debora.maia@oxiteno.com');
     localStorage.setItem('passwordColl', 'timeOxiteno');
 
-
-
     $(document).ready(() => {
-        
         $('button#send').on('click', function () {
             if ($('#inputName').val().trim() == '' || $('#inputEmail').val().trim() == '' || $('#inputPassword').val().trim() == ''){
                 event.preventDefault();
