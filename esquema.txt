@@ -1,0 +1,46 @@
+Tipo de Login:
+    * Usuário
+    * Colaborador
+
+
+==============================================================================================================
+        Usuário
+    
+    * Tela de Login
+        -> Nome
+        -> E-mail
+        -> Senha
+
+    * Abas disponíveis
+        -> Abrir solicitação
+            # Nome      #require ##default
+            # Email     #require ##default
+            # Empresa   #require
+            # Cargo     #require
+            # Telefone  #require
+            # Anexo
+            # Area // Select de 
+
+            -> Envio de E-mail
+                # Resumo de informações
+
+        -> Visualizar solicitações
+            # Tabela com solicitações efetuadas
+            # Busca por ID
+            # Feedback //E-mail enviado após fim do chamado.
+
+
+==================================================================================================================
+        Colaborador
+    
+    * Tela de Login
+        -> Nome
+        -> E-mail
+        -> Senha
+
+    * Abas disponíveis
+        -> Visualizar Chamados
+        -> SLA
+            # Adicionar SLA
+            # Editar SLA
+        -> 

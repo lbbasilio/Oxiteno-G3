@@ -1,0 +1,23 @@
+{
+  "name": "oxiteno-g3",
+  "version": "1.0.0",
+  "description": "Projeto solicitado pela Debora por nós",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbbasilio/Oxiteno-G3.git"
+  },
+  "keywords": [
+    "oxiteno",
+    "dashboard"
+  ],
+  "author": "Augusto, Luca, Richard, Stenio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbbasilio/Oxiteno-G3/issues"
+  },
+  "homepage": "https://github.com/lbbasilio/Oxiteno-G3#readme"
+}
