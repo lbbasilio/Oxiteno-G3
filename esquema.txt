@@ -39,8 +39,7 @@ Tipo de Login:
         -> Senha
 
     * Abas disponíveis
+        -> Dashboard // Pagina inicial
         -> Visualizar Chamados
         -> SLA
-            # Adicionar SLA
             # Editar SLA
-        -> 
