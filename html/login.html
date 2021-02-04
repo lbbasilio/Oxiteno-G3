@@ -43,8 +43,6 @@
         <form action="#">
             <img class="mb-4" src="../img/oxiteno-logo.png" alt="Oxiteno-Logo" width="40%">
             <h1 class="h3 mb-3 fw-normal">Faça seu login</h1>
-            <label for="inputName" class="visually-hidden">Name</label>
-            <input type="name" id="inputName" class="form-control" placeholder="Nome" required="" autofocus="">
             <label for="inputEmail" class="visually-hidden">Email</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="">
             <label for="inputPassword" class="visually-hidden">Senha</label>
@@ -73,7 +71,7 @@
 
     $(document).ready(() => {
         $('button#send').on('click', function () {
-            if ($('#inputName').val().trim() == '' || $('#inputEmail').val().trim() == '' || $('#inputPassword').val().trim() == ''){
+            if ($('#inputEmail').val().trim() == '' || $('#inputPassword').val().trim() == ''){
                 event.preventDefault();
                 $('button#send').after('<h1 id="error" class="h3 mt-3 fw-normal">Por favor insira todos os dados</h1>');
                 setTimeout(()=>{
@@ -81,13 +79,9 @@
                 }, 4000);
             }
             else if($('#inputEmail').val().trim() == localStorage.getItem('emailUser') && $('#inputPassword').val().trim() == localStorage.getItem('passwordUser')){
-                const name = $('#inputName').val().trim();
-                localStorage.setItem('name', name);
                 window.location.href = './homepageUser.html';
             }
             else if ($('#inputEmail').val().trim() == localStorage.getItem('emailColl') && $('#inputPassword').val().trim() == localStorage.getItem('passwordColl')){
-                const name = $('#inputName').val().trim();
-                localStorage.setItem('name', name);
                 window.location.href = './homepageColl.html';
             }
             else {
