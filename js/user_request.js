@@ -272,7 +272,7 @@ $(document).ready(function() {
                 </button>
             </div>
             <div id="sub${string}" class="accordion-collapse collapse" data-bs-parent="#categorias">
-                <div class="accordion-body container-fluid">
+                <div class="accordion-body container-fluid" style="padding-top: 0;">
                     <div class="row justify-content-around" id="body${string}"></div>
                 </div>
             </div>
@@ -282,36 +282,37 @@ $(document).ready(function() {
             catCount[cat] = 0;
     });
 
-    console.log(dict);
     dados.items.forEach(item => {
         let content = 
             `<div class="col">
             <div class="card" style="height: 100%;">
+                <div class="card-header">
+                    ${item.titulo}
+                </div>    
                 <div class="card-body">
-                    <h5 class="card-title">${item.titulo}</h5>
                     <p class="card-text">${item.desc}</p>
-                    <a href="#" class="card-link">Solicitar</a>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" subitem_id="${item.id}">Solicitar</button>
+                    </div>
                 </div>
             </div>
             </div>`;
 
         let count = catCount[item.cat];
-        if (count % 3 == 0) content = `<div class="row row-cols-3 gx-4">` + content;
+
+        if (count % 3 == 0) content = `<div class="row row-cols-3 gx-4 gy-3">` + content;
         else if (count % 3 == 2) content = content + `</div>`;
         
         if (count % 3 == 0) dict[item.cat].append(content);
-        else 
-        {
-            console.log(item.id, item);
-            dict[item.cat].children().eq(Math.floor(count / 3)).append(content);
-        }
+        else dict[item.cat].children().eq(Math.floor(count / 3)).append(content);
+
         catCount[item.cat]++;
     });
 
-});   
+    $(".accordion-body button").on('click', function () {
+        window.location.href = "form_call.html?id=" + this.attributes.subitem_id.value;
+    });
 
-// TODO:
-// - Arrumar spacing entre cards
-// - Colocar titulo do card no header
-// - Colocar botão no footer
-// - Completar a tabela em JSON
+});   
