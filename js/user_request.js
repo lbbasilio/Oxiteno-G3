@@ -257,7 +257,7 @@ let dados = {
 
 $(document).ready(function () {
 
-    async function getDataDB() {
+    /*async function getDataDB() {
         const res = await axios.get('localhost:3000/catalogo_solicitacoes');
         return res;
     }
@@ -266,6 +266,17 @@ $(document).ready(function () {
     (async () => {
         console.log(await getDataDB());
     })();
+
+    (async () => {
+        try {
+            var resp = await fetch('/catalogo_solicitacoes')
+        }
+    })();*/
+
+    fetch('/catalog')
+        .then(r => r)
+        .then(data => console.log(data.json()))
+        .catch(e => console.log(e));
 
     const acc = $("#categorias");
     let dict = {};
