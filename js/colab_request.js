@@ -97,6 +97,7 @@ $(document).ready(function () {
 
     var progress = document.getElementById("progress");
     var complete = document.getElementById("complete");
+    
 
     if (id.getAttribute("name") == "progress") {
   
