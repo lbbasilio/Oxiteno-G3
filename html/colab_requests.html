@@ -61,12 +61,13 @@
                   </div>
               </div>
           </div>
-          <div class="col-sm-6 col-md-4 col-xl-4">
+          <div class="col-sm-6 col-md-4 col-xl-4" >
               <div class="card bg-light">
-                  <div class="card-body">
+                  <div class="card-body" id="progress">
                       <h6 class="card-title text-uppercase text-truncate py-2">In-progess</h6>
-                      <div class="items border border-light">
+                      <div class="items border border-light" id="progress">
                           
+                          <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
                           <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
                          
                          
@@ -75,11 +76,11 @@
               </div>
           </div>
           
-          <div class="col-sm-6 col-md-4 col-xl-4">
+          <div class="col-sm-6 col-md-4 col-xl-4" >
               <div class="card">
-                  <div class="card-body">
+                  <div class="card-body" id="complete"> 
                       <h6 class="card-title text-uppercase text-truncate py-2">Complete</h6>
-                      <div class="items border border-light">
+                      <div class="items border border-light" >
                           
                           <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
                          
