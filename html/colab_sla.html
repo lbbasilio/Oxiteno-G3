@@ -9,31 +9,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../img/oxiteno-logo.png">
   <title>Sla's</title>
+  <style>
+     .a{
+     background-color:#E4FFFF;
+     border-radius: 20px;
+    }
+    .divC{
+      max-width: 500px; 
+      padding: 20px; 
+      border: 2px; 
+      border-style: dashed;
+      border-radius: 20px;
+    }
+    #navColor{
+      color:white;
+    }
+  </style>
 </head>
 <body>
 <div class="container-fluid ps-0 pe-0">
-  <nav class="navbar fixed-top navbar-expand-md navbar-light mb-5"style="background-color: #124DAD;">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
     <div class="container-fluid">
       <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
+      <h1><a class="nav-link active" style="color: white  ;" href="#">Oxiteno</a></h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <h1 class="text-light">Oxiteno</h1>
-          
+          <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./colab_home.html">Inicio</a></h6>
           </li>
+          <li class="nav-item">
+            <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_sla.html">Definir SLA</a></h6>
+          </li>
+          <li class="nav-item">
+            <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_requests.html">Consultar SLA</a></h6>
+          </li> 
         </ul>
+        <form class="d-flex"> 
+          <a href="./login.html" type="button" class="btn btn-success" style="background-color:#B1DC60;width: 150px;height: 40px;">Sair</a>
+        </form>
       </div>
     </div>
+  </div>
   </nav>
   <div class="row mt-5"></div>
 
   <div class="row mt-5 justify-content-evenly">
-  <form class="col-4 border border-primary border-rounded p-3">
+  <form class="col-4  border-rounded p-3" style="border: 2px; border-radius: 20px; border-style: dashed; ">
     <fieldset></fieldset>
-      <legend>Alterar tempo</legend>
+      <legend style="color: red;">Alterar tempo</legend>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Item</label>
         <select class="form-select" id="primary"aria-label="Default select example" required>
