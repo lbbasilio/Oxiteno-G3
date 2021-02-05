@@ -1,12 +1,9 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
-const https = require("https");
+const cors = require('cors');
 
 app.use(express.json());
 app.use(cors());
-
-const db = [];
 
 app.get('/catalogo_solicitacoes', async function (req, res) {
     return res.json(await selectAllSolicitacoes());
@@ -19,8 +16,8 @@ app.put('/catalogo_solicitacoes', async (req, res) => {
     return res.json('Criado com Sucesso!')
 });
 
-app.listen(5500, function () {
-    console.log('Conectado porta 5500');
+app.listen(3000, function () {
+    console.log('Conectado porta 3000');
 });
 
 async function connect() {
@@ -35,6 +32,6 @@ async function connect() {
 
 async function selectAllSolicitacoes() {
     const connection = await connect();
-    const [rows] = await connection.query('SELECT * FROM catalogo_subitem');
+    const [rows] = await connection.query('SELECT * FROM catalogo_subitem INNER JOIN catalogo_item on catalogo_subitem.item_id = catalogo_item.item_id ORDER BY catalogo_item.item_id');
     return rows;
 };

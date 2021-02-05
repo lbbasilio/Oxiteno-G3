@@ -20,7 +20,7 @@
     </style>
 </head>
 
-<body style="background-color:# ;">
+<body>
 
     <div class="container-fluid ps-0 pe-0" >
         <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;">
@@ -123,3 +123,17 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(() =>{
+        const urlParams = new URLSearchParams(window.location.search);
+        const item_name = urlParams.get('item_name');
+        const subitem_name = urlParams.get('subitem_name');
+
+        $('input#inputItem').val(item_name);
+        $('input#inputSubItem').val(subitem_name);
+
+    })
+
+    
+</script>
