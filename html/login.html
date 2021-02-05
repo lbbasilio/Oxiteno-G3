@@ -71,21 +71,20 @@
 
     $(document).ready(() => {
         $('button#send').on('click', function () {
+            event.preventDefault();
             if ($('#inputEmail').val().trim() == '' || $('#inputPassword').val().trim() == ''){
-                event.preventDefault();
                 $('button#send').after('<h1 id="error" class="h3 mt-3 fw-normal">Por favor insira todos os dados</h1>');
                 setTimeout(()=>{
                     $('h1#error').remove();
                 }, 4000);
             }
             else if($('#inputEmail').val().trim() == localStorage.getItem('emailUser') && $('#inputPassword').val().trim() == localStorage.getItem('passwordUser')){
-                window.location.href = './homepageUser.html';
+                window.location.href = './user_home.html';
             }
             else if ($('#inputEmail').val().trim() == localStorage.getItem('emailColl') && $('#inputPassword').val().trim() == localStorage.getItem('passwordColl')){
-                window.location.href = './homepageColl.html';
+                window.location.href = './colab_home.html';
             }
             else {
-                event.preventDefault();
                 $('button#send').after('<h1 id="error" class="h3 mt-3 fw-normal">Dados incorretos, por favor tente novamente</h1>');
                 setTimeout(()=>{
                     $('h1#error').remove();
