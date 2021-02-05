@@ -30,6 +30,7 @@ $(document).ready(function(){
       <button class="btn btn-primary btn-sm">View</button>
   </div>
 </div>
+
           
             `
   todo.innerHTML += `
@@ -50,6 +51,7 @@ $(document).ready(function(){
 </div>
           
             `
+  
             // console.log(div)
          
 })
@@ -95,7 +97,7 @@ const updateDropzones = () => {
     var dz = $('<div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>');
     
     // delete old dropzones
-    $('.dropzone').remove();
+   // $('.dropzone').remove();
 
     // insert new dropdzone after each item   
     dz.insertAfter('.card.draggable');
