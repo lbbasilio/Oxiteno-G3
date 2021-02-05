@@ -9,24 +9,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../img/oxiteno-logo.png">
   <title>Portal</title>
+  <style>
+      #navColor{
+        color: white;
+      }
+  </style>
 </head>
 <body style="padding-top: 100px ">
-    <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;">
-        <div class="container-fluid">
-          <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <h1 class="text-light">Oxiteno</h1>
-              
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
+    <div class="container-fluid">
+      <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
+      <h1><a class="nav-link active" style="color: white  ;" href="./user_home.html">Oxiteno</a></h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          <h4> <a class="nav-link active" aria-current="page"  id="navColor"  href="./user_home.html">Inicio</a></h4>
+          </li>
+          <li class="nav-item">
+            <h4> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_request.html">Cadastrar solicitação</a></h4>
+          </li>
+          <li class="nav-item">
+            <h4> <a class="nav-link active" aria-current="page"  id="navColor" href="#">Cadastrar solicitação</a></h4>
+          </li> 
+        </ul>
+        <form class="d-flex"> 
+          <a href="./login.html" type="button" class="btn btn-success">Sair</a>
+        </form>
+      </div>
+    </div>
+  </nav>
 
     <div class="container-fluid">
         <div class="row justify-content-center">
