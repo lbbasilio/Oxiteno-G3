@@ -36,31 +36,27 @@
       <legend>Alterar tempo</legend>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Item</label>
-        <select class="form-select" id="primary"aria-label="Default select example">
-          <option value='1'>Open this select menu</option>
+        <select class="form-select" id="primary"aria-label="Default select example" required>
+          <option value='1'>Escolha um item</option>
          
         </select>
       </div>
       <div class="mb-3">
         <label for="disabledSelect" class="form-label">Sub-item</label>
         <select class="form-select" id ="secondary" aria-label="Disabled select example" disabled>
-          <option >Open this select menu</option>
+          <option >Escolha um sub-item</option>
         </select>
       </div>
       <div class="mb-3">
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            Dias
-          </a>
-        
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
+        <label for="form-select" class="form-label">Prazos</label>
+        <select class="form-select">
+          <option>Escolha um Prazo</option>
+          <option value="1">1 dia</option>
+          <option value="2">2 dias</option>
+          <option value="3">3 dias</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Alterar</button>
     </fieldset>
   </form>
 </div>

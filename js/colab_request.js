@@ -98,8 +98,17 @@ $(document).ready(function () {
     var progress = document.getElementById("progress");
     var complete = document.getElementById("complete");
 
+
+
+   
+
+
     if (id.getAttribute("name") == "progress") {
-  
+      var btn = document.createElement('button')
+
+      btn.value = excluir
+      btn.setAttribute('id','excluir')
+      btn.addClass('.btn btn-danger')
       complete.appendChild(id);
       return;
     }
