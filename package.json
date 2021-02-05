@@ -4,7 +4,8 @@
   "description": "Projeto solicitado pela Debora por nós",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "dev": "nodemon ./js/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
   },
   "homepage": "https://github.com/lbbasilio/Oxiteno-G3#readme",
   "dependencies": {
-    "nodemailer": "^6.4.17"
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.7"
   }
 }

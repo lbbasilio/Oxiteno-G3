@@ -1,18 +1,17 @@
 let dados = {
     categorias: ["Restaurante", "Limpeza", "Jardinagem", "Segurança Patrimonial", "Recepção", "Correspondência", "Controle de pragas", "Máquina de snacks", "Máquina de bebidas quentes", "Estacionamento", "Transporte de turno", "Transporte Administrativo", "Frota de veículos - pool", "PAB - Itaú", "Elevador"],
-    items: [
-        {
+    items: [{
             id: 1,
             titulo: "Elogios",
             cat: "Restaurante",
-            desc: "Registro <b>positivo</b> quanto ao atendimento da equipe, cardápio e infraestrutura", 
+            desc: "Registro <b>positivo</b> quanto ao atendimento da equipe, cardápio e infraestrutura",
             sla: 120
         },
         {
             id: 2,
             titulo: "Reclamações",
             cat: "Restaurante",
-            desc: "Registro <b>negativo</b> quanto ao atendimento da equipe, cardápio e infraestrutura", 
+            desc: "Registro <b>negativo</b> quanto ao atendimento da equipe, cardápio e infraestrutura",
             sla: 120
         },
         {
@@ -20,20 +19,20 @@ let dados = {
             titulo: "Solicitação Geral",
             cat: "Restaurante",
             desc: "",
-            sla: 48 
+            sla: 48
         },
         {
             id: 4,
             titulo: "Elogios",
             cat: "Limpeza",
-            desc: "Registro <b>positivo</b> quanto ao atendimento da equipe e atividade realizada", 
+            desc: "Registro <b>positivo</b> quanto ao atendimento da equipe e atividade realizada",
             sla: 120
         },
         {
             id: 5,
             titulo: "Reclamações",
             cat: "Limpeza",
-            desc: "Registro <b>negativo</b> quanto ao atendimento da equipe e atividade realizada", 
+            desc: "Registro <b>negativo</b> quanto ao atendimento da equipe e atividade realizada",
             sla: 120
         },
         {
@@ -256,14 +255,24 @@ let dados = {
     ]
 };
 
-$(document).ready(function() {
-    
+$(document).ready(function () {
+
+    async function getDataDB() {
+        const res = await axios.get('localhost:3000/catalogo_solicitacoes');
+        return res;
+    }
+
+
+    (async () => {
+        console.log(await getDataDB());
+    })();
+
     const acc = $("#categorias");
     let dict = {};
     let catCount = {};
 
     dados.categorias.forEach(cat => {
-        let string = cat.replace(/ /g,"");
+        let string = cat.replace(/ /g, "");
         acc.append(
             `<div class="accordion-item">
             <div class="accordion-header" id="${cat}">
@@ -278,12 +287,12 @@ $(document).ready(function() {
             </div>
             </div>`);
 
-            dict[cat] = $(`#body${string}`);
-            catCount[cat] = 0;
+        dict[cat] = $(`#body${string}`);
+        catCount[cat] = 0;
     });
 
     dados.items.forEach(item => {
-        let content = 
+        let content =
             `<div class="col">
             <div class="card" style="height: 100%;">
                 <div class="card-header">
@@ -304,7 +313,7 @@ $(document).ready(function() {
 
         if (count % 3 == 0) content = `<div class="row row-cols-3 gx-4 gy-3">` + content;
         else if (count % 3 == 2) content = content + `</div>`;
-        
+
         if (count % 3 == 0) dict[item.cat].append(content);
         else dict[item.cat].children().eq(Math.floor(count / 3)).append(content);
 
@@ -315,4 +324,4 @@ $(document).ready(function() {
         window.location.href = "form_call.html?id=" + this.attributes.subitem_id.value;
     });
 
-});   
+});
