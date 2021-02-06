@@ -27,84 +27,70 @@
   </style>
 </head>
 <body>
-<div class="container-fluid ps-0 pe-0" style="padding: 30px;">
-  <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
-    <div class="container-fluid">
-      <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
-      <h1><a class="nav-link active" style="color: white  ;" href="#">Oxiteno</a></h1>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-          <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./colab_home.html">Inicio</a></h6>
-          </li>
-          <li class="nav-item">
-            <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_sla.html">Definir SLA</a></h6>
-          </li>
-          <li class="nav-item">
-            <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_requests.html">Consultar SLA</a></h6>
-          </li> 
-        </ul>
-        <form class="d-flex"> 
-          <a href="./login.html" type="button" class="btn btn-success" style="background-color:#B1DC60;width: 150px;height: 40px;">Sair</a>
-        </form>
+  <div class="container-fluid ps-0 pe-0" style="padding: 30px;">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
+      <div class="container-fluid">
+        <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
+        <h1><a class="nav-link active" style="color: white  ;" href="./colab_home.html">Oxiteno</a></h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-top: 15px;">
+            <li class="nav-item">
+            <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./colab_home.html">Inicio</a></h6>
+            </li>
+            <li class="nav-item">
+              <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_sla.html">Definir SLA</a></h6>
+            </li>
+            <li class="nav-item">
+              <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_requests.html">Consultar SLA</a></h6>
+            </li> 
+          </ul>
+          <form class="d-flex"> 
+            <a href="./login.html" type="button" class="btn btn-success" style="background-color:#B1DC60;width: 150px;height: 40px;">Sair</a>
+          </form>
+        </div>
       </div>
     </div>
+    </nav>
   </div>
-  </nav>
-  <div class="row mt-5"></div>
-
-  <div class="row mt-5 justify-content-evenly">
-  <form class="col-4  border-rounded p-3" style="border: 2px; border-radius: 20px; border-style: dashed; ">
-    <fieldset></fieldset>
-
-      <legend style="color: red;">Alterar prazos</legend>
-
-      <legend style="color: red;">Definir SLA</legend>
-
-      <div class="mb-3">
-        <label for="disabledTextInput" class="form-label">Item</label>
-        <select class="form-select" id="primary"aria-label="Default select example">
-          <option value='1'>Selecione o Item</option>
-         
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="disabledSelect" class="form-label">Sub-item</label>
-        <select class="form-select" id ="secondary" aria-label="Disabled select example" disabled>
-          <option >Selecione o Sub-Item</option>
-        </select>
-      </div>
-      <div class="mb-3">
-
-        <label for="form-select" class="form-label">Prazos</label>
-        <select class="form-select">
-          <option>Escolha um Prazo</option>
-          <option value="24">24h</option>
-          <option value="42">48h</option>
-          <option value="72">72h</option>
-        </select>
-
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            Dias
-          </a>
-        
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-
-      </div>
-      <button type="submit" class="btn btn-outline-primary" >Enviar</button>
-    </fieldset>
-  </form>
-</div>
- </div> 
-
+<<div class="container mt-5 bg-light pt-5" >
+  <div class="row justify-content-evenly" >
+    <form class="col-4  border-rounded p-3" style="border: 2px; border-radius: 20px; border-style: dashed; ">
+     <fieldset fieldset></fieldset>
+ 
+       <legend style="color: red;">Alterar prazos</legend>
+ 
+       <legend style="color: red;">Definir SLA</legend>
+ 
+         <div class="mb-3">
+           <label for="disabledTextInput" class="form-label">Item</label>
+           <select class="form-select" id="primary"aria-label="Default select example">
+             <option value='1'>Selecione o Item</option>
+           
+           </select>
+         </div>
+         <div class="mb-3">
+           <label for="disabledSelect" class="form-label">Sub-item</label>
+           <select class="form-select" id ="secondary" aria-label="Disabled select example" disabled>
+             <option >Selecione o Sub-Item</option>
+           </select>
+         </div>
+         <div class="mb-3">
+           <label for="form-select" class="form-label">Prazos</label>
+           <select class="form-select">
+             <option>Escolha um Prazo</option>
+             <option value="24">24h</option>
+             <option value="42">48h</option>
+             <option value="72">72h</option>
+           </select>
+         </div>
+       <button type="submit" class="btn btn-outline-primary" >Enviar</button>
+     </fieldset>
+     </form>
+     </div>
+   </div> 
+ </div>
 </body>
 </html>
