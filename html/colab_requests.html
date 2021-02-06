@@ -6,30 +6,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="../js/colab_request.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../img/oxiteno-logo.png">
   <style>
-  .card.draggable {
-    margin-bottom: 1rem;
-    cursor: grab;
-}
-
-.droppable {
-    background-color: green;
-    min-height: 120px;
-    margin-bottom: 1rem;
-    
-}
 .a{
      background-color:#E4FFFF;
      border-radius: 20px;
-    }
-    .divC{
-      max-width: 500px; 
-      padding: 20px; 
-      border: 2px; 
-      border-style: dashed;
-      border-radius: 20px;
     }
     #navColor{
       color:white;
@@ -66,61 +47,47 @@
     </div>
     </nav>
 
-    <div class="container-fluid pt-3">
-      <h3 class="font-weight-light text-white">Kanban Board</h3>
-      <div class="small  text-light">Drag and drop between swim lanes</div>
-      
+    <div class="container-fluid pt-3" style="margin-top: 85px;">
       <div class="row flex-row flex-sm-nowrap">
           <div class="col-sm-6 col-md-4 col-xl-4">
               <div class="card bg-light">
-                  <div class="card-body">
-                      <h6 class="card-title text-uppercase text-truncate py-2">ToDo</h6>
-                      <div class="items border border-light" id="to-do">
-                         
-                          <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
-                          
-                         
-                         
-                         
-                      </div>
-                  </div>
+                <div class="card-header">
+                    <h6 class="card-title text-uppercase text-truncate">ToDo</h6>
+                </div>
+                <div class="card-body">
+                    <div class="items border border-light" id="to-do">
+                        
+                        
+                    </div>
+                </div>
               </div>
           </div>
           <div class="col-sm-6 col-md-4 col-xl-4" >
               <div class="card bg-light">
-                  <div class="card-body" id="progress">
-                      <h6 class="card-title text-uppercase text-truncate py-2">In-progess</h6>
-                      <div class="items border border-light" id="progress">
-                          
-                          <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
-                          <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
-                         
-                         
-                      </div>
-                  </div>
+                <div class="card-header">
+                    <h6 class="card-title text-uppercase text-truncate">In-progess</h6>
+                </div>
+                <div class="card-body">
+                    <div class="items border border-light" id="progress">
+                        
+                    </div>
+                </div>
               </div>
           </div>
           
           <div class="col-sm-6 col-md-4 col-xl-4" >
-              <div class="card">
-                  <div class="card-body" id="complete"> 
-                      <h6 class="card-title text-uppercase text-truncate py-2">Complete</h6>
-                      <div class="items border border-light" >
-                          
-                          <div class="dropzone rounded" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="clearDrop(event)"> &nbsp; </div>
-                         
-                          
+              <div class="card bg-light">
+                  <div class="card-header">
+                    <h6 class="card-title text-uppercase text-truncate">Complete</h6>
+                  </div>
+                  <div class="card-body"> 
+                      <div class="items border border-light" id="complete">
                           
                       </div>
                   </div>
               </div>
           </div>
       </div>
-    </div>
-
-        </div>
-      </div>
-    </div>
   </div>
 
   </div>
