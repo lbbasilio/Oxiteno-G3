@@ -18,7 +18,7 @@ $(document).ready( async function(){
   data.forEach(item => {
     let content = 
     `
-      <div class="card text-white bg-success mb-3 col-xxl" id="${item.solicitacao_id}" status="${item.status}">
+      <div class="card text-white bg-success mb-3 col-12" id="${item.solicitacao_id}" status="${item.status}">
           <div class="card-body">
           <h5>${item.item_name}</h5>
               <h6>${item.name}</h6>
