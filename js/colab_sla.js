@@ -306,7 +306,6 @@ $(document).ready(function () {
       option_.text = data.titulo;
       select_.append(option_);
     });
-    
   });
 
   function removeOptions(selectElement) {
