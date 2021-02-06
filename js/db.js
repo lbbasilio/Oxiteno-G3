@@ -30,7 +30,7 @@ async function selectAllSolicitation(){
 async function insertSolicitation(solicitation){
     const connection = await connect();
     const sql = 'INSERT INTO solicitacoes(subitem_id, nome, email, empresa, cargo, telefone, area, descricao, anexo, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
-    const values = [solicitation.subitem_id, solicitation.nome, solicitation.email, solicitation.empresa, solicitation.cargo, solicitation.telefone, solicitation.area, solicitation.descricao, solicitation.anexo];
+    const values = [solicitation.subitem_id, solicitation.nome, solicitation.email, solicitation.empresa, solicitation.cargo, solicitation.telefone, solicitation.area, solicitation.descricao, solicitation.anexo, solicitation.status, solicitation.data_solicitacao, solicitation.data_vencimento];
     return await connection.query(sql, values);
 };  
 async function updateSolicitation(id, solicitation){

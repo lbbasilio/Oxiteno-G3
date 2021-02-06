@@ -6,11 +6,15 @@ const convertDate = require('./helper/convertDate');
 app.use(express.json());
 app.use(cors());
 
-app.get('/catalogo_solicitacoes', async function (req, res) {
+app.put('/solicitacoes/:id', async ({params:id, body:status}, res) => {
+    return updateSolicitacao(id.id, status);
+});
+
+app.get('/catalogo_solicitacoes', async (req, res) => {
     return res.json(await selectAllSolicitacoesCatalogo());
 });
 
-app.get('/solicitacoes', async function (req, res) {
+app.get('/solicitacoes', async (req, res) => {
     return res.json(await selectAllSolicitacoes(convertDate));
 });
 
@@ -43,8 +47,15 @@ async function selectAllSolicitacoesCatalogo() {
 
 async function selectAllSolicitacoes(convertDate) {
     const connection = await connect();
-    let [rows] = await connection.query('SELECT s.*, ci.*, cs.name FROM solicitacoes AS s INNER JOIN catalogo_item AS ci ON s.subitem_id = ci.item_id INNER JOIN catalogo_subitem AS cs ON s.subitem_id = cs.subitem_id ORDER BY s.data_vencimento;');
+    let [rows] = await connection.query('SELECT s.*, ci.*, cs.name, cs.sla FROM solicitacoes AS s INNER JOIN catalogo_item AS ci ON s.subitem_id = ci.item_id INNER JOIN catalogo_subitem AS cs ON s.subitem_id = cs.subitem_id ORDER BY s.data_vencimento;');
     rows[0].data_solicitacao = await convertDate(rows[0].data_solicitacao);
     rows[0].data_vencimento = await convertDate(rows[0].data_vencimento);
     return rows;
+};
+
+async function updateSolicitacao(id, solicitation){
+    const connection = await connect();
+    const sql = 'UPDATE solicitacoes SET status=? WHERE solicitacao_id=?;';
+    const values = [solicitation.status, id];
+    return await connection.query(sql,values);
 };

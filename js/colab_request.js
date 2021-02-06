@@ -1,11 +1,5 @@
 $(document).ready(async () => {
-  var sla = localStorage.getItem("sla");
-  var title = localStorage.getItem("title");
-  var manager = localStorage.getItem("Gerencia");
-  var proces = localStorage.getItem("Processo");
-  var description = localStorage.getItem("Descrição");
-
-  var todo = document.querySelector("#to-do");
+  var todo = document.querySelector("#todo");
   var progress = document.querySelector("#progress");
   var complete = document.querySelector("#complete");
 
@@ -23,17 +17,17 @@ $(document).ready(async () => {
   dados.forEach(item => {
     let content = 
     `
-      <div class="card" id="${item.solicitacao_id}" status="${item.status}">
-          <div class="card-body">
+    <div id="${item.solicitacao_id}" status="${item.status}">
+      <div class="card">
+        <div class="row">
+          <div class="card-body col-md-7">
           <h5>${item.item_name}</h5>
               <h6>${item.name}</h6>
           </div>
-          <div class="card-footer border-top-0 bg-transparent">
-              <div class="d-flex">
-                  <div class="p-2">SLA</div>
-                  <div class="p-2 ms-auto">${item.solicitacao_id}</div>
-              </div>
+          <div class="card-body col-md-5">
+              <div class="text-center">${item.data_solicitacao}</div>
           </div>
+        </div>
       </div>
       <div class="modal fade" tabindex="-1" id="mod${item.solicitacao_id}">
         <div class="modal-dialog">
@@ -103,27 +97,32 @@ $(document).ready(async () => {
                 </li>
               </ul>
             </div>
-            <div class="modal-footer border-top-0 mt-2 d-flex">`
-            if (item.status == 0) content += `
-              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Em Progresso</button></div>
-              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Completo</button></div>`
+            <div class="modal-footer border-top-0 mt-2 d-flex justify-content-between">`
+            /*if (item.status == 0) content += `
+              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>
+              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toComplete" target="${item.solicitacao_id}">Completo</button></div>`
             else if (item.status == 1) content += `
-              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">To-Do</button></div>
-              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Completo</button></div>`
+              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
+              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toComplete" target="${item.solicitacao_id}">Completo</button></div>`
             else if (item.status == 2) content += `
-              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">To-Do</button></div>
-              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Em Progresso</button></div>
+              <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
+              <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>*/
+            content += `
+            <div class="p-1"><button id="todoBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
+            <div class="p-1"><button id="progBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>
+            <div class="p-1"><button id="compBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toComplete" target="${item.solicitacao_id}">Completo</button></div>
             </div>
           </div>
       </div>
+    </div>
     </div>
     `;
 
     switch (item.status)
     {
-      case 0: todo.innerHTML += content; break;
-      case 1: progress.innerHTML += content; break;
-      case 2: complete.innerHTML += content; break;
+      case 0: todo.innerHTML      += content; break;
+      case 1: progress.innerHTML  += content; break;
+      case 2: complete.innerHTML  += content; break;
     }
 
   });
@@ -137,10 +136,40 @@ $(document).ready(async () => {
 
   $(".card .card").on('click', function () {
     $(".modal").modal('show');
-    console.log(this)
   });
 
+  $(".modal-footer button").on('click', function () {
+    let id = this.attributes.target.value;
+    let target = $(`#${id}`);
+    switch (this.attributes.name.value)
+    {
+      case "toTodo": 
+        $("#todo").append(target); 
+        target.attr("status", 0);
+        break;
+      case "toProgress": 
+        $("#progress").append(target);
+        target.attr("status", 1);
+        break;
+      case "toComplete": 
+        $("#complete").append(target); 
+        target.attr("status", 2);
+        break;
+      default: console.log(this.attributes.name.value); break;
+    }
+    
+    let status = {
+      "status": target.attr("status")
+    };
 
+    fetch(`http://localhost:3000/solicitacoes/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(status)
+    });
+  });
 
 /*<div class="row justify-content-center">
         <div class="col-sm-3">
@@ -207,7 +236,7 @@ $(document).ready(async () => {
         </div>
       </div>*/
   ///////
-  var div = document.createElement("div");
+  // var div = document.createElement("div");
 
   //$(todo).addClass('row border border-danger rounded-3')
   /*todo.innerHTML += `
@@ -288,8 +317,7 @@ $(document).ready(async () => {
           
             `;*/
 
-  
-  $("button").on("click", function (event) {
+  /*$("button").on("click", function (event) {
     var parent_id = $(this).parent().parent().attr("id");
 
     var id = document.getElementById(parent_id);
@@ -306,6 +334,9 @@ $(document).ready(async () => {
       progress.appendChild(id);
       
     }
+  });*/
 
-  });
+  function createExpiredDate(date_solicitation, subitem_sla){
+
+  }
 });

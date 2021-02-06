@@ -129,13 +129,47 @@
 </html>
 
 <script>
-    $(document).ready(() =>{
+    $(document).ready(async () =>{
         const urlParams = new URLSearchParams(window.location.search);
         const item_name = urlParams.get('item_name');
         const subitem_name = urlParams.get('subitem_name');
 
         $('input#inputItem').val(item_name);
         $('input#inputSubItem').val(subitem_name);
+
+        let dados = await fetch('http://localhost:3000/catalogo_solicitacoes', {
+        method: "GET" ,
+        mode: "cors",
+      })
+        .then(r => r.json())
+        .then(data => {
+           return data;
+        })
+        .catch(e => console.log(e));
+
+        let dado = dados.filter((dado)=>{
+            if (dado.name == $('input#inputSubItem').val()) return dado;
+        })
+        console.log(dado[0]);
+
+        const data_solicitacao = Date.now();
+        const data_vencimento = data_solicitacao
+        
+        let solicitation = {
+            "subitem_id": $('#inputSubItem').val(),
+            "nome": $('#inputnome').val(),
+            "email": $('#inputEmail').val(),
+            "empresa": $('#inputSubItem').val(),
+            "cargo": $('#inputSubItem').val(),
+            "telefone": $('#inputSubItem').val(),
+            "area": $('#inputSubItem').val(),
+            "descricao": $('#inputSubItem').val(),
+            "anexo": $('#inputSubItem').val(),
+            "status": $('#inputSubItem').val(),
+            "data_solicitacao": $('#inputSubItem').val(),
+            "data_vencimento": $('#inputSubItem').val(),
+        };
+
 
     })
 
