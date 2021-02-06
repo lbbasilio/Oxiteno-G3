@@ -95,6 +95,12 @@ $(document).ready(async () => {
                   <div class="ms-auto">${item.data_solicitacao}</div>
                 </div>
                 </li>
+                <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="fw-bold">Vencimento em:</div>
+                  <div class="ms-auto">${item.data_vencimento}</div>
+                </div>
+                </li>
               </ul>
             </div>
             <div class="modal-footer border-top-0 mt-2 d-flex justify-content-between">`
@@ -108,9 +114,9 @@ $(document).ready(async () => {
               <div class="p-1"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
               <div class="p-1 ms-auto"><button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>*/
             content += `
-            <div class="p-1"><button id="todoBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
-            <div class="p-1"><button id="progBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>
-            <div class="p-1"><button id="compBtn${item.solicitacao_id}" type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toComplete" target="${item.solicitacao_id}">Completo</button></div>
+            <div class="p-1"><button id="todoBtn${item.solicitacao_id}" ${item.status == 2 ? `style="visibility: hidden;"` : ""} type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toTodo" target="${item.solicitacao_id}">To-Do</button></div>
+            <div class="p-1"><button id="progBtn${item.solicitacao_id}" ${item.status == 2 ? `style="visibility: hidden;"` : ""} type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toProgress" target="${item.solicitacao_id}">Em Progresso</button></div>
+            <div class="p-1"><button id="compBtn${item.solicitacao_id}" ${item.status == 2 ? `style="visibility: hidden;"` : ""} type="button" class="btn btn-primary" data-bs-dismiss="modal" name="toComplete" target="${item.solicitacao_id}">Completo</button></div>
             </div>
           </div>
       </div>
@@ -135,7 +141,8 @@ $(document).ready(async () => {
   });
 
   $(".card .card").on('click', function () {
-    $(".modal").modal('show');
+    $(this).siblings('.modal').modal('show');
+    //$("#" + this.attributes.id.value).siblings('.modal').modal('show');
   });
 
   $(".modal-footer button").on('click', function () {
@@ -154,6 +161,7 @@ $(document).ready(async () => {
       case "toComplete": 
         $("#complete").append(target); 
         target.attr("status", 2);
+        target.find('.modal-footer').css('visibility', 'hidden');
         break;
       default: console.log(this.attributes.name.value); break;
     }
@@ -162,7 +170,10 @@ $(document).ready(async () => {
       "status": target.attr("status")
     };
 
-    fetch(`http://localhost:3000/solicitacoes/${id}`, {
+    let nomeItem = target.find('.card-body h5').html();
+    let nomeSubItem = target.find('.card-body h6').html();
+
+    fetch(`http://localhost:3000/solicitacoes/${id}/${nomeItem}/${nomeSubItem}`, {
       method: "PUT",
       headers: {
         'Content-type': 'application/json; charset=UTF-8'

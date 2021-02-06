@@ -304,7 +304,7 @@ $(document).ready(async function () {
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary" item_name="${dado.item_name}" subitem_name="${dado.name}" sla="${dado.sla}">Solicitar</button>
+                        <button type="button" class="btn btn-primary" item_name="${dado.item_name}" subitem_name="${dado.name}" subitem_id="${dado.subitem_id}">Solicitar</button>
                     </div>
                 </div>
             </div>
@@ -371,6 +371,6 @@ $(document).ready(async function () {
     });*/
 
     $(".accordion-body button").on('click', function () {
-        window.location.href = `form_call.html?item_name=${this.attributes.item_name.value}&subitem_name=${this.attributes.subitem_name.value}`;
+        window.location.href = `form_call.html?subitem_id=${this.attributes.subitem_id.value}&item_name=${this.attributes.item_name.value}&subitem_name=${this.attributes.subitem_name.value}`;
     });
 });

@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-module.exports = async (date) => {
-    var dateFormat = await moment(date).format('DD/MM/YYYY HH:mm:ss');
+module.exports = (date) => {
+    var dateFormat = moment(date, 'x').format('DD/MM/YYYY HH:mm:ss');
     return dateFormat;
 }

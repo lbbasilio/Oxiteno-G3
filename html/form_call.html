@@ -61,15 +61,11 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="inputItem" class="form-label">Item</label>
-                            <input type="item" class="form-control" id="inputItem" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                            <input type="item" class="form-control" id="inputItem" required="" disabled>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputSubItem" class="form-label">Subitem</label>
-                            <input type="subitem" class="form-control" id="inputSubItem" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                            <input type="subitem" class="form-control" id="inputSubItem" required="" disabled>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputName" class="form-label">Nome completo</label>
@@ -119,11 +115,25 @@
                         </div>
                     </div>
                     <div class="mt-3 mb-3 text-center">
-                        <button type="submit" class="ps-5 pe-5  btn btn-primary">Criar solicitação</button>
+                        <button id='createSolicitation' type="submit" class="ps-5 pe-5 btn btn-primary">Criar solicitação</button>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="modal fade" id="modal-alert" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Aviso</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Solicitação criada com sucesso!
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
 </body>
 
 </html>
@@ -133,45 +143,62 @@
         const urlParams = new URLSearchParams(window.location.search);
         const item_name = urlParams.get('item_name');
         const subitem_name = urlParams.get('subitem_name');
+        const subitem_id = urlParams.get('subitem_id');
 
         $('input#inputItem').val(item_name);
         $('input#inputSubItem').val(subitem_name);
-
-        let dados = await fetch('http://localhost:3000/catalogo_solicitacoes', {
-        method: "GET" ,
-        mode: "cors",
-      })
-        .then(r => r.json())
-        .then(data => {
-           return data;
-        })
-        .catch(e => console.log(e));
-
-        let dado = dados.filter((dado)=>{
-            if (dado.name == $('input#inputSubItem').val()) return dado;
-        })
-        console.log(dado[0]);
-
-        const data_solicitacao = Date.now();
-        const data_vencimento = data_solicitacao
         
-        let solicitation = {
-            "subitem_id": $('#inputSubItem').val(),
-            "nome": $('#inputnome').val(),
-            "email": $('#inputEmail').val(),
-            "empresa": $('#inputSubItem').val(),
-            "cargo": $('#inputSubItem').val(),
-            "telefone": $('#inputSubItem').val(),
-            "area": $('#inputSubItem').val(),
-            "descricao": $('#inputSubItem').val(),
-            "anexo": $('#inputSubItem').val(),
-            "status": $('#inputSubItem').val(),
-            "data_solicitacao": $('#inputSubItem').val(),
-            "data_vencimento": $('#inputSubItem').val(),
-        };
+        let dados = await fetch(`http://localhost:3000/catalogo_solicitacoes/`, {
+            method: "GET" ,
+            mode: "cors",
+            })
+            .then(r => r.json())
+            .then(data => {
+              return data;
+            })
+            .catch(e => console.log(e));
 
+            let dado = dados.filter((dado)=>{
+                if (dado.subitem_id == subitem_id) return dado;
+            })
+            console.log(dado);
 
+            let sla = miliseconds(dado[0].sla, 0, 0)
+            const data_solicitacao = Date.now();
+            const data_vencimento = data_solicitacao + sla;
+
+            $('button#createSolicitation').on('click', async () => {
+                event.preventDefault();
+
+                let solicitation = {
+                "subitem_id": subitem_id,
+                "nome": $('#inputName').val(),
+                "email": $('#inputEmail').val(),
+                "empresa": $('#inputEnterprise').val(),
+                "cargo": $('#inputPosition').val(),
+                "telefone": $('#inputPhone').val(),
+                "area": $('#inputArea').val(),
+                "descricao": $('#inputDescribe').val(),
+                "anexo": $('#inputFile').val() ? $('#inputFile').val() : null,
+                "data_solicitacao": data_solicitacao,
+                "data_vencimento": data_vencimento,
+                };
+
+                fetch(`http://localhost:3000/solicitacoes/${item_name}/${subitem_name}`, {
+                method: "POST",
+                headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify(solicitation)
+                })
+                .then(() => {
+                    $('#modal-alert').modal('show');
+                })
+                .catch(e => console.log(e));
+        })
+
+        function miliseconds(hrs, min, sec) {
+        return ((hrs * 60 * 60 + min * 60 + sec) * 1000);
+        }
     })
-
-    
 </script>
