@@ -27,7 +27,7 @@
   </style>
 </head>
 <body>
-<div class="container-fluid ps-0 pe-0">
+<div class="container-fluid ps-0 pe-0" style="padding: 30px;">
   <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
     <div class="container-fluid">
       <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
@@ -59,21 +59,34 @@
   <div class="row mt-5 justify-content-evenly">
   <form class="col-4  border-rounded p-3" style="border: 2px; border-radius: 20px; border-style: dashed; ">
     <fieldset></fieldset>
-      <legend style="color: red;">Alterar tempo</legend>
+
+      <legend style="color: red;">Alterar prazos</legend>
+
+      <legend style="color: red;">Definir SLA</legend>
+
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Item</label>
         <select class="form-select" id="primary"aria-label="Default select example">
-          <option value='1'>Open this select menu</option>
+          <option value='1'>Selecione o Item</option>
          
         </select>
       </div>
       <div class="mb-3">
         <label for="disabledSelect" class="form-label">Sub-item</label>
         <select class="form-select" id ="secondary" aria-label="Disabled select example" disabled>
-          <option >Open this select menu</option>
+          <option >Selecione o Sub-Item</option>
         </select>
       </div>
       <div class="mb-3">
+
+        <label for="form-select" class="form-label">Prazos</label>
+        <select class="form-select">
+          <option>Escolha um Prazo</option>
+          <option value="24">24h</option>
+          <option value="42">48h</option>
+          <option value="72">72h</option>
+        </select>
+
         <div class="dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             Dias
@@ -85,8 +98,9 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </div>
+
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-outline-primary" >Enviar</button>
     </fieldset>
   </form>
 </div>
