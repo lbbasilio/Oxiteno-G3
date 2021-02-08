@@ -9,24 +9,7 @@
   <title>Portal do Usuario</title>
   <link rel="shortcut icon" href="../img/oxiteno-logo.png">
   <link rel="stylesheet" href="../css/fotter.css">
-  <style>
-    .a{
-     background-color:#E4FFFF;
-     border-radius: 20px;
-    }
-    .divC{
-      max-width: 500px; 
-      padding: 20px; 
-      border: 2px; 
-      border-style: dashed;
-      border-radius: 20px;
-    }
-    #navColor{
-      color:white;
-    }
-   
-
-   </style>
+  <link rel="stylesheet" href="../css/home.css">
 </head>
 <body class="body"> 
   <div class="container-fluid ps-0 pe-0" style="padding: 30px;" >
@@ -50,7 +33,7 @@
           </li> 
         </ul>
         <form class="d-flex"> 
-          <a href="./login.html" type="button" class="btn btn-success" style="background-color:#B1DC60;width: 150px;height: 40px;">Sair</a>
+          <a href="./login.html" type="button" class="btn btn-danger" id="buttonsair">Sair</a>
         </form>
       </div>
     </div>
@@ -65,23 +48,23 @@
           <div class="col-md-4">
             <img src="../img/cadastro.png" alt="...">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8" >
             <div class="card-body">
-              <h5 class="card-title" style="color:#FF0000;">Cadastrar solicitação</h5>
+              <h5 class="card-title" style="color:#a2c617;">Cadastrar solicitação</h5>
               <p class="card-text">Criar uma nova solicitação.</p>
               <p class="card-text"><a href="../html/user_request.html" type="button"class="btn btn-outline-primary">Cadastrar</a></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="divC card mb-3">
+      <div class="divC card mb-3" >
         <div class="row g-0">
           <div class="col-md-4">
             <img src="../img/pagina-da-internet.png" alt="...">
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title" style="color:#FF0000;">Consultar solicitações</h5>
+          <div class="col-md-8" >
+            <div class="card-body" >
+              <h5 class="card-title" style="color:#a2c617;">Consultar solicitações</h5>
               <p class="card-text">Consultar o andamento de solicitações efetuadas.</p>
               <p class="card-text"><a href="./user_view.html" type="button" class="btn btn-outline-primary">Consultar</a></p>
             </div>
@@ -93,36 +76,29 @@
 
 <div class="content">
 </div>
-    <footer id="myFooter">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                   <img src="../img/oxiteno-footer.png"alt="Oxiteno-Logo" width="250px"/>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Inicio</h5>
-                   
-                </div>
-                <div class="col-sm-2">
-                    <h5>Sobre-nós</h5>
-                    
-                </div>
-                <div class="col-sm-2">
-                    <h5>Suporte</h5>
-                    
-                </div>
-                <div class="col-sm-3">
-                    
-                    <a href="#">
-                        <button type="button" class="btn btn-default">Contato</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>© Oxiteno - 1970 - 2021</p>
-        </div>
-    </footer>
-    
+<footer id="myFooter">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6">
+             <img src="../img/oxiteno-footer.png"alt="Oxiteno-Logo" width="200px"/>
+          </div>
+          
+          <div class="col-sm-4">
+              <h5>Sobre-nós</h5>
+              
+          </div>
+          
+          <div class="col-sm-2">
+              
+              <a href="https://www.oxiteno.com/br/pt-br/">
+                  <button type="button" class="btn btn-default" >Contato</button>
+              </a>
+          </div>
+      </div>
+  </div>
+  <div class="footer-copyright">
+      <p>© Oxiteno - 1970 - 2021</p>
+  </div>
+</footer>    
 </body>
 </html>

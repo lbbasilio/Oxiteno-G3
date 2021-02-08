@@ -1,0 +1,21 @@
+.a{
+    background-color:#E4FFFF;
+    border-radius: 20px;
+   }
+   .divC{
+     max-width: 500px; 
+     padding: 20px; 
+     border: 6px; 
+     border-style: double;
+     border-radius: 20px;
+   
+   }
+   #navColor{
+     color:white;
+   }
+   #buttonsair{
+     width: 150px;
+     height: 40px;
+     border-radius: 50px;
+
+   }
