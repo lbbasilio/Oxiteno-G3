@@ -16,8 +16,8 @@ async function selectAllSolicitacoesCatalogo() {
 };
 async function addSLACatalogSolicitation(id, solicitation){
     const connection = await connect();
-    const sql = 'UPDATE catalogo_subitem SET sla_oxiteno=?, sla=? WHERE id=?;';
-    const values = [solicitation.oxiteno_sla, solicitation.sla, id];
+    const sql = 'UPDATE catalogo_subitem SET sla_oxiteno=?, sla=? WHERE subitem_id=?;';
+    const values = [solicitation.sla, solicitation.sla, id];
     return await connection.query(sql, values);
 };
 
@@ -26,8 +26,9 @@ async function selectAllSolicitacoes(convertDate) {
     const connection = await connect();
     let [rows] = await connection.query('SELECT s.*, ci.*, cs.name, cs.sla FROM solicitacoes AS s INNER JOIN catalogo_subitem AS cs ON s.subitem_id = cs.subitem_id INNER JOIN catalogo_item AS ci ON cs.item_id = ci.item_id ORDER BY s.data_vencimento;');
     await rows.forEach((row, index) => {
-        rows[index].data_solicitacao = convertDate(row.data_solicitacao)
-        rows[index].data_vencimento = convertDate(row.data_vencimento)
+        rows[index].data_vencimento_ms = row.data_vencimento;
+        rows[index].data_solicitacao = convertDate(row.data_solicitacao);
+        rows[index].data_vencimento = convertDate(row.data_vencimento);
     });
     return rows;
 };

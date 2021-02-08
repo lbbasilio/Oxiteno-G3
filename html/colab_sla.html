@@ -10,9 +10,8 @@
   <link rel="shortcut icon" href="../img/oxiteno-logo.png">
   <link rel="stylesheet" href="../css/fotter.css">
   <link rel="stylesheet" href="../css/home.css">
-  <title>Sla's</title>
+  <title>Definir SLA</title>
 
-  </style>
 </head>
 <body>
   <div class="container-fluid ps-0 pe-0" style="padding: 30px;">
@@ -51,21 +50,20 @@
        <legend style="color: red;">Definindo SLA</legend>
  
          <div class="mb-3">
-           <label for="disabledTextInput" class="form-label">Item</label>
-           <select class="form-select" id="primary"aria-label="Default select example">
-             <option value='1'>Selecione o Item</option>
-           
+           <label for="inputItem" class="form-label">Item</label>
+           <select class="form-select" id="inputItem">
+             <option value='default-item' selected>Selecione o Item</option>
            </select>
          </div>
          <div class="mb-3">
-           <label for="disabledSelect" class="form-label">Sub-item</label>
-           <select class="form-select" id ="secondary" aria-label="Disabled select example" disabled>
-             <option >Selecione o Sub-Item</option>
+           <label for="inputSubItem" class="form-label">Sub-item</label>
+           <select class="form-select" id="inputSubItem" disabled>
+             <option value='default-subItem' selected>Selecione o Sub-Item</option>
            </select>
          </div>
          <div class="mb-3">
-           <label for="form-select" class="form-label">Prazos</label>
-           <select class="form-select">
+           <label for="form-select"  class="form-label">Prazos</label>
+           <select id="prazos" class="form-select">
              <option>Escolha um Prazo</option>
              <option value="08">08h</option>
              <option value="12">12h</option>
@@ -74,7 +72,7 @@
              <option value="72">72h</option>
            </select>
          </div>
-       <button type="submit" class="btn btn-primary">Definir SLA</button>
+       <button id='send' type="submit" class="btn btn-primary">Definir SLA</button>
      </fieldset>
      </form>
      </div>
