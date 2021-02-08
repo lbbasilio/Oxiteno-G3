@@ -33,13 +33,13 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-top: 15px;">
                   <li class="nav-item">
-                  <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./user_home.html">Inicio</a></h6>
+                  <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./user_home.html">Início</a></h6>
                   </li>
                   <li class="nav-item">
                     <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_request.html">Cadastrar solicitação</a></h6>
                   </li>
                   <li class="nav-item">
-                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="#">Consultar solicitação</a></h6>
+                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="#">Consultar solicitações</a></h6>
                   </li> 
                 </ul>
                 <form class="d-flex"> 
@@ -99,7 +99,16 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputArea" class="form-label">Área</label>
-                            <input type="area" class="form-control" id="inputArea">
+                            <select id="inputArea" class="form-select form-select-md" aria-label="select-area">
+                                <option selected>Selecione a área relacionada</option>
+                                <option value="Contas a Pagar">Contas a Pagar</option>
+                                <option value="Facilities">Facilities</option>
+                                <option value="Contabilidade">Contabilidade</option>
+                                <option value="Tributário">Tributário</option>
+                                <option value="RH">RH</option>
+                                <option value="Tesouraria">Tesouraria</option>
+                                <option value="Service Desk">Service Desk</option>
+                              </select>
                         </div>
                         <div class="mb-3 col-md-12">
                             <div class="mb-3 col-md-12 text-center h3 fw-normal">
@@ -163,6 +172,8 @@
             })
             console.log(dado);
 
+            $('#inputDescribe').attr('placeholder', (dado[0].prerequisito ? dado[0].prerequisito : ''));
+
             let sla = miliseconds(dado[0].sla, 0, 0)
             const data_solicitacao = Date.now();
             const data_vencimento = data_solicitacao + sla;
@@ -177,7 +188,7 @@
                 "empresa": $('#inputEnterprise').val(),
                 "cargo": $('#inputPosition').val(),
                 "telefone": $('#inputPhone').val(),
-                "area": $('#inputArea').val(),
+                "area": $('#inputArea').val() != 'Selecione a área relacionada' ? $('#inputArea').val() : null,
                 "descricao": $('#inputDescribe').val(),
                 "anexo": $('#inputFile').val() ? $('#inputFile').val() : null,
                 "data_solicitacao": data_solicitacao,

@@ -38,13 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-top: 15px;">
             <li class="nav-item">
-            <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./colab_home.html">Inicio</a></h6>
+            <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./colab_home.html">Início</a></h6>
             </li>
             <li class="nav-item">
               <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_sla.html">Definir SLA</a></h6>
             </li>
             <li class="nav-item">
-              <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_requests.html">Consultar SLA</a></h6>
+              <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./colab_requests.html">Consultar solicitações</a></h6>
             </li> 
           </ul>
           <form class="d-flex"> 
@@ -60,9 +60,7 @@
     <form class="col-4  border-rounded p-3" style="border: 2px; border-radius: 20px; border-style: dashed; ">
      <fieldset fieldset></fieldset>
  
-       <legend style="color: red;">Alterar prazos</legend>
- 
-       <legend style="color: red;">Definir SLA</legend>
+       <legend style="color: red;">Definindo SLA</legend>
  
          <div class="mb-3">
            <label for="disabledTextInput" class="form-label">Item</label>
@@ -81,12 +79,14 @@
            <label for="form-select" class="form-label">Prazos</label>
            <select class="form-select">
              <option>Escolha um Prazo</option>
+             <option value="08">08h</option>
+             <option value="12">12h</option>
              <option value="24">24h</option>
              <option value="42">48h</option>
              <option value="72">72h</option>
            </select>
          </div>
-       <button type="submit" class="btn btn-outline-primary" >Enviar</button>
+       <button type="submit" class="btn btn-primary">Definir SLA</button>
      </fieldset>
      </form>
      </div>
