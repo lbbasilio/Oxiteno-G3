@@ -15,12 +15,11 @@ module.exports = (solicitation, itemName, subItemName, type) => {
             from: 'Chamados Oxiteno <chamados@oxiteno.com>',
             to: solicitation.email,
             subject: `Notificação: Solicitação Registrada`,
-            text: `
-            A sua solicitação de ${itemName} - ${subItemName} foi registrada com sucesso.
-            Tendo o prazo de solução de ${solicitation.sla} horas a partir do horario de atendimento "Segunda a sexta das 8:00 às 17:00".
-            Acompanhe a sua solicitação pelo código ${solicitation.solicitacao_id} na sua página de "Consultar Solicitação'.
+            text: ` A sua solicitação de ${itemName} - ${subItemName} foi registrada com sucesso.
+    Tendo o prazo de solução de ${solicitation.sla} horas a partir do horario de atendimento "Segunda a sexta das 8:00 às 17:00".
+    Acompanhe a sua solicitação pelo código ${solicitation.solicitacao_id} na sua página de "Consultar Solicitação".
             
-            Nós da Oxiteno agradecemos pela sua preferência!`
+    Nós da Oxiteno agradecemos pela sua preferência!`
         };
     }
     else if ( type == 'Finalizado'){

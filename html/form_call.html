@@ -39,7 +39,7 @@
                     <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_request.html">Cadastrar solicitação</a></h6>
                   </li>
                   <li class="nav-item">
-                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="#">Consultar solicitações</a></h6>
+                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_view.html">Consultar solicitações</a></h6>
                   </li> 
                 </ul>
                 <form class="d-flex"> 
@@ -180,6 +180,13 @@
 
             $('button#createSolicitation').on('click', async () => {
                 event.preventDefault();
+
+                if ($('#inputName').val() == '') return $('#inputName').focus();
+                if ($('#inputEmail').val() == '') return $('#inputEmail').focus();
+                if ($('#inputEnterprise').val() == '') return $('#inputEnterprise').focus();
+                if ($('#inputPosition').val() == '') return $('#inputPosition').focus();
+                if ($('#inputPhone').val() == '') return $('#inputPhone').focus();
+                if ($('#inputDescribe').val() == '') return $('#inputDescribe').focus();
 
                 let solicitation = {
                 "subitem_id": subitem_id,
