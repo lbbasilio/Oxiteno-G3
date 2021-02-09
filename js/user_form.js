@@ -1,5 +1,4 @@
-<script>
-    $(document).ready(async () =>{
+    $(document).ready(async () => {
         const urlParams = new URLSearchParams(window.location.search);
         const item_name = urlParams.get('item_name');
         const subitem_name = urlParams.get('subitem_name');
@@ -32,6 +31,13 @@
             $('button#createSolicitation').on('click', async () => {
                 event.preventDefault();
 
+                if ($('#inputName').val() == '') return $('#inputName').focus();
+                if ($('#inputEmail').val() == '') return $('#inputEmail').focus();
+                if ($('#inputEnterprise').val() == '') return $('#inputEnterprise').focus();
+                if ($('#inputPosition').val() == '') return $('#inputPosition').focus();
+                if ($('#inputPhone').val() == '') return $('#inputPhone').focus();
+                if ($('#inputDescribe').val() == '') return $('#inputDescribe').focus();
+                
                 let solicitation = {
                 "subitem_id": subitem_id,
                 "nome": $('#inputName').val(),
@@ -63,4 +69,3 @@
         return ((hrs * 60 * 60 + min * 60 + sec) * 1000);
         }
     })
-</script>
