@@ -13,159 +13,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/oxiteno-logo.png">
     <link rel="stylesheet" href="../css/fotter.css">
-  <link rel="stylesheet" href="../css/home.css">
-  <link rel="stylesheet" href="../js/user_form.js">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="../js/user_form.js"></script>
     <title>Formularios de Chamados</title>
-   
+
 </head>
 
 <body>
 
     <div class="container-fluid ps-0 pe-0" style="padding: 30px;">
-        <nav class="navbar fixed-top navbar-expand-md navbar-light"style="background-color: #124DAD;" ">
-            <div class="container-fluid">
-              <img src="../img/oxiteno-logo.png"alt="Oxiteno-Logo" width="50px"/>
-              <h1><a class="nav-link active" style="color: white  ;" href="./user_home.html">Oxiteno</a></h1>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar fixed-top navbar-expand-md navbar-light" style="background-color: #124DAD;" ">
+            <div class=" container-fluid">
+            <img src="../img/oxiteno-logo.png" alt="Oxiteno-Logo" width="50px" />
+            <h1><a class="nav-link active" style="color: white  ;" href="./user_home.html">Oxiteno</a></h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-top: 15px;">
-                  <li class="nav-item">
-                  <h6> <a class="nav-link active" aria-current="page"  id="navColor"  href="./user_home.html">Início</a></h6>
-                  </li>
-                  <li class="nav-item">
-                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_request.html">Cadastrar solicitação</a></h6>
-                  </li>
-                  <li class="nav-item">
-                    <h6> <a class="nav-link active" aria-current="page"  id="navColor" href="./user_view.html">Consultar solicitações</a></h6>
-                  </li> 
+                    <li class="nav-item">
+                        <h6> <a class="nav-link active" aria-current="page" id="navColor"
+                                href="./user_home.html">Início</a></h6>
+                    </li>
+                    <li class="nav-item">
+                        <h6> <a class="nav-link active" aria-current="page" id="navColor"
+                                href="./user_request.html">Cadastrar solicitação</a></h6>
+                    </li>
+                    <li class="nav-item">
+                        <h6> <a class="nav-link active" aria-current="page" id="navColor"
+                                href="./user_view.html">Consultar solicitações</a></h6>
+                    </li>
                 </ul>
-                <form class="d-flex"> 
-                  <a href="./login.html" type="button" class="btn btn-danger" id="buttonsair">Sair</a>
+                <form class="d-flex">
+                    <a href="./login.html" type="button" class="btn btn-danger" id="buttonsair">Sair</a>
                 </form>
-              </div>
             </div>
-          </div>
-          </nav>
-          
+    </div>
+    </div>
+    </nav>
+
     </div>
 
-        <div class="container mt-5 pt-5" style="background-color:#E4FFFF;" >
-            <div class="row justify-content-evenly " >
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <div>
-                        <h1 class="h3 mb-3 fw-normal text-center" >Criando a solicitação</h1>
+    <div class="container mt-5 pt-5" style="background-color:#E4FFFF;">
+        <div class="row justify-content-evenly ">
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div>
+                    <h1 class="h3 mb-3 fw-normal text-center">Criando a solicitação</h1>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="inputItem" class="form-label">Item</label>
+                        <input type="item" class="form-control" id="inputItem" required="" disabled>
                     </div>
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label for="inputItem" class="form-label">Item</label>
-                            <input type="item" class="form-control" id="inputItem" required="" disabled>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputSubItem" class="form-label">Subitem</label>
-                            <input type="subitem" class="form-control" id="inputSubItem" required="" disabled>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputName" class="form-label">Nome completo</label>
-                            <input type="name" class="form-control" id="inputName" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputEmail" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="inputEmail" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputEnterprise" class="form-label">Empresa</label>
-                            <input type="enterprise" class="form-control" id="inputEnterprise" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputPosition" class="form-label">Cargo</label>
-                            <input type="position" class="form-control" id="inputPosition" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputPhone" class="form-label">Telefone</label>
-                            <input type="phone" class="form-control" id="inputPhone" required=""
-                                aria-describedby="requireDescribe">
-                            <div id="requireDescribe" class="form-text">* Obrigatório</div>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputArea" class="form-label">Área</label>
-                            <select id="inputArea" class="form-select form-select-md" aria-label="select-area">
-                                <option selected>Selecione a área relacionada</option>
-                                <option value="Contas a Pagar">Contas a Pagar</option>
-                                <option value="Facilities">Facilities</option>
-                                <option value="Contabilidade">Contabilidade</option>
-                                <option value="Tributário">Tributário</option>
-                                <option value="RH">RH</option>
-                                <option value="Tesouraria">Tesouraria</option>
-                                <option value="Service Desk">Service Desk</option>
-                              </select>
-                        </div>
-                        <div class="mb-3 col-md-12">
-                            <div class="mb-3 col-md-12 text-center h3 fw-normal">
-                                <label for="inputDescribe" class="form-label">Descrição da solicitação</label>
-                            </div>
-                            <textarea name="describe" class="form-control" id="inputDescribe" cols="100"
-                                rows="10"></textarea>
-                        </div>
-                        <div class="mb-3 col-md-12">
-                            <h1 class="h3 mb-3 fw-normal text-center">Anexar arquivo</h1>
-                            <input type="file" name="inputFile" class="form-control" id="inputFile"
-                                placeholder="Selecione um arquivo...">
-                        </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputSubItem" class="form-label">Subitem</label>
+                        <input type="subitem" class="form-control" id="inputSubItem" required="" disabled>
                     </div>
-                    <div class="mt-3 mb-3 text-center">
-                        <button id='createSolicitation' type="submit" class="ps-5 pe-5 btn" style="background-color:#a2c617; color: white; font-size:x-large;border-radius: 15px;">Criar solicitação</button>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputName" class="form-label">Nome completo</label>
+                        <input type="name" class="form-control" id="inputName" required=""
+                            aria-describedby="requireDescribe">
+                        <div id="requireDescribe" class="form-text">* Obrigatório</div>
                     </div>
-                </form>
-            </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputEmail" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="inputEmail" required=""
+                            aria-describedby="requireDescribe">
+                        <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputEnterprise" class="form-label">Empresa</label>
+                        <input type="enterprise" class="form-control" id="inputEnterprise" required=""
+                            aria-describedby="requireDescribe">
+                        <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputPosition" class="form-label">Cargo</label>
+                        <input type="position" class="form-control" id="inputPosition" required=""
+                            aria-describedby="requireDescribe">
+                        <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputPhone" class="form-label">Telefone</label>
+                        <input type="phone" class="form-control" id="inputPhone" required=""
+                            aria-describedby="requireDescribe">
+                        <div id="requireDescribe" class="form-text">* Obrigatório</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="inputArea" class="form-label">Área</label>
+                        <select id="inputArea" class="form-select form-select-md" aria-label="select-area">
+                            <option selected>Selecione a área relacionada</option>
+                            <option value="Contas a Pagar">Contas a Pagar</option>
+                            <option value="Facilities">Facilities</option>
+                            <option value="Contabilidade">Contabilidade</option>
+                            <option value="Tributário">Tributário</option>
+                            <option value="RH">RH</option>
+                            <option value="Tesouraria">Tesouraria</option>
+                            <option value="Service Desk">Service Desk</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-12 text-center h3 fw-normal">
+                            <label for="inputDescribe" class="form-label">Descrição da solicitação</label>
+                        </div>
+                        <textarea name="describe" class="form-control" id="inputDescribe" cols="100"
+                            rows="10"></textarea>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <h1 class="h3 mb-3 fw-normal text-center">Anexar arquivo</h1>
+                        <input type="file" name="inputFile" class="form-control" id="inputFile"
+                            placeholder="Selecione um arquivo...">
+                    </div>
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                    <button id='createSolicitation' type="submit" class="ps-5 pe-5 btn"
+                        style="background-color:#a2c617; color: white; font-size:x-large;border-radius: 15px;">Criar
+                        solicitação</button>
+                </div>
+            </form>
         </div>
-        <div class="modal fade" id="modal-alert" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
+    </div>
+    <div class="modal fade" id="modal-alert" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">Aviso</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Aviso</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     Solicitação criada com sucesso!
                 </div>
-              </div>
             </div>
-            </div>
-          </div>
-          <div class="content">
         </div>
-        <footer id="myFooter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                       <img src="../img/oxiteno-footer.png"alt="Oxiteno-Logo" width="200px"/>
-                    </div>
-                    
-                    <div class="col-sm-4">
-                        <a href="./about_us.html"><h5>Sobre-nós</h5></a>
-                        
-                    </div>
-                    
-                    <div class="col-sm-2">
-                        
-                        <a href="https://www.oxiteno.com/br/pt-br/contato/">
-                            <button type="button" class="btn btn-default" >Contato</button>
-                        </a>
-                    </div>
+    </div>
+    </div>
+    <div class="content">
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="../img/oxiteno-footer.png" alt="Oxiteno-Logo" width="200px" />
+                </div>
+
+                <div class="col-sm-4">
+                    <a href="./about_us.html">
+                        <h5>Sobre-nós</h5>
+                    </a>
+
+                </div>
+
+                <div class="col-sm-2">
+
+                    <a href="https://www.oxiteno.com/br/pt-br/contato/">
+                        <button type="button" class="btn btn-default">Contato</button>
+                    </a>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <p>© Oxiteno - 1970 - 2021</p>
-            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© Oxiteno - 1970 - 2021</p>
+        </div>
 </body>
-
