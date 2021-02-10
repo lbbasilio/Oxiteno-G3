@@ -147,12 +147,14 @@ $(document).ready(async () => {
 
   setInterval(() => {
     dados.forEach(item => {
-      if (item.status != 2) {
+      let status = $(`#${item.solicitacao_id}`).attr('status');
+      if (status != 2) {
         $(`#date${item.solicitacao_id}`).text(`${formatDate(item.data_vencimento_ms) + (Date.now() > item.data_vencimento_ms ? "atrasados" : "restantes")}`);
-        if (item.data_vencimento_ms - Date.now() > 4000 * 3600)
-          $(`#${item.solicitacao_id}`).addClass('alert-warning');
+        if (item.data_vencimento_ms - Date.now() < 4000 * 3600)
+          $(`#${item.solicitacao_id}`).children('.card').addClass('alert-warning');
+        else if (item.data_vencimento_ms <= Date.now())
+          $(`#${item.solicitacao_id}`).children('.card').addClass('alert-danger');
       }
-
     });
   }, 60000);
 
@@ -185,6 +187,7 @@ $(document).ready(async () => {
         target.attr("status", 2);
         target.find('.modal-footer').css('visibility', 'hidden');
         target.children('.card').removeClass('alert-danger alert-warning').addClass('alert-success');
+        $(`#date${id}`).text('Finalizado');
         break;
       default: console.log(this.attributes.name.value); break;
     }

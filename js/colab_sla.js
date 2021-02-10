@@ -300,15 +300,15 @@ $(document).ready(async function () {
 
   // Populando select SubItem.
   const selectSubItem = $('#inputSubItem');
-  selectItem.change(()=>{
+  selectItem.change(() => {
     $('#inputItem option:eq(0)').remove();
     selectSubItem.prop('disabled', false);
     selectSubItem.find('option')
-    .remove()
-    .end()
+      .remove()
+      .end()
 
     dados.forEach((dado) => {
-      if (dado.item_name == selectItem.val()){
+      if (dado.item_name == selectItem.val()) {
         const option = document.createElement('option');
         option.value = dado.name;
         option.text = dado.name;
@@ -319,7 +319,7 @@ $(document).ready(async function () {
   });
 
   //Configurando POST no botão
-  $('button#send').on('click', async ()=>{
+  $('button#send').on('click', async () => {
     event.preventDefault();
     const SLABody = {
       "sla": $('#prazos').val(),
@@ -328,12 +328,16 @@ $(document).ready(async function () {
     const id = $('#inputSubItem').children(':selected').attr('id');
 
     fetch(`http://localhost:3000/solicitacoes_sla/${id}`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(SLABody)
-    });
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(SLABody)
+      })
+      .then(() => {
+        $('#modal-alert').modal('show');
+      })
+      .catch(e => console.log(e));
   })
 
   // dados.categorias.forEach((element) => {
